@@ -21,6 +21,7 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 
 // User
 Route::get('/signUp', 'UsersController@create')->name('signUp');
+
 Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
 
 Route::get('login', 'SessionsController@create')->name('login');
@@ -28,3 +29,5 @@ Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
 Route::resource('users', "UsersController");
+
+Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');
